@@ -27,7 +27,7 @@
 									<c:param name='ApplicationController' value='NewsShow' />
 									<c:param name='newsId' value='${item.id}' />
 								</c:url>">
-								${item.title}
+								${item.title} (leia mais...)
 							</a>
 						</h2>
 						<!-- 
