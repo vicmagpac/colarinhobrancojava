@@ -18,6 +18,10 @@
 			<div id="site-content">
 				<article class="news">
 					<h1 class="title">${news.title}</h1>
+					<time datetime="<fmt:formatDate value='${news.date}' type='both' pattern='yyyy-MM-dd HH:mm:ss'/>"
+							class="news-headline-time">
+							<fmt:formatDate value="${news.date}" type="both"/>
+						</time>
 					<!-- <img src="${pageContext.request.contextPath}/image?newsId=${news.id}&imageFileName=${news.headlineImage}"
 						alt="Eike Batista deixa presídio Bangu"> -->
 					<div class="news-text">

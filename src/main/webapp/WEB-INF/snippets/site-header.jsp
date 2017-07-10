@@ -4,7 +4,7 @@
 	<a href="<c:url value='/'/>">
 		<figure>
 			<img id="site-logo" alt="Logotipo colarinho branco" src="${pageContext.request.contextPath}/resources/images/logo.gif">						
-			<figcaption id="site-name">Colarinho branco</figcaption>
+			<figcaption id="site-name">Trabalho engenharia de software</figcaption>
 		</figure>
 	</a>				
 	<h1 id="page-title">${param.pageTitle}</h1>			
