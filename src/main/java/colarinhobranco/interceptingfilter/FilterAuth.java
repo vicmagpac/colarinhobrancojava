@@ -32,21 +32,26 @@ public class FilterAuth implements Filter {
 		
 		
 		String except = ((HttpServletRequest) request).getParameter("ApplicationController");
-		
-		if (except.equals("Login") || except.equals("Auth")) {
-			chain.doFilter(request, response);
-		} else {
-		
-			if (usuarioLogado == null) {
-				HttpServletResponse httpResponse = (HttpServletResponse) response;
-				httpResponse.sendRedirect("/colarinhobranco/FrontController?ApplicationController=Login");		
-				
+		if (except != null) {
+			if (except.equals("Login") || except.equals("Auth")) {
+				chain.doFilter(request, response);
 			} else {
-				
-				chain.doFilter(request, response);	
-			}
 			
+				if (usuarioLogado == null) {
+					HttpServletResponse httpResponse = (HttpServletResponse) response;
+					httpResponse.sendRedirect("/colarinhobranco/FrontController?ApplicationController=Login");		
+					
+				} else {
+					
+					chain.doFilter(request, response);	
+				}
+				
+			}
+		} else {
+			HttpServletResponse httpResponse = (HttpServletResponse) response;
+			httpResponse.sendRedirect("/colarinhobranco/FrontController?ApplicationController=Login");		
 		}
+		
 	
 		
 		
