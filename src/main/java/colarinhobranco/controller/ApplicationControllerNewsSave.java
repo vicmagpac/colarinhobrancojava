@@ -13,19 +13,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import colarinhobranco.dao.NewsDao;
-import colarinhobranco.daoimpl.NewsDaoImpl;
 import colarinhobranco.model.News;
+import colarinhobranco.services.ApplicationServiceNews;
 
 
 public class ApplicationControllerNewsSave extends ApplicationController {
 	
-		
-	
-	private NewsDao newsDao = new NewsDaoImpl();
-	
 	private SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 	private String imagesFolder; 
+	
+	private ApplicationServiceNews service = new ApplicationServiceNews();
 	
 	
 	@Override
@@ -49,8 +46,8 @@ public class ApplicationControllerNewsSave extends ApplicationController {
 			
 			News news = new News(title, date, headlineContent, headlineImage.getSubmittedFileName(), content);
 			
-			if (newsDao.save(news) != null) {
-				saveHeadlineImage(headlineImage, news.getId());
+			if (this.service.save(news) != null) {
+				//saveHeadlineImage(headlineImage, news.getId());
 			}
 			
 			this.request.setAttribute("news", news);

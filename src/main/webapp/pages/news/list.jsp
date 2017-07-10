@@ -19,7 +19,7 @@
 					
 				<c:forEach items="${news}" var="item" varStatus="status">	
 				
-					<article class="news-headline ${status.count % 2 == 0 ? 'even' : 'odd'}">
+					<article class="news-headline">
 					
 						<h2 class="news-headline-title">
 							<a href="

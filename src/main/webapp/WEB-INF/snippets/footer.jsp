@@ -1,3 +1,3 @@
 <footer id="site-footer">
-	&copy; Caio Holanda Costa 2017
+	&copy; Engenharia de Software - Trabalho 2017
 </footer>

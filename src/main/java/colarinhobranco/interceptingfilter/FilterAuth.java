@@ -32,7 +32,7 @@ public class FilterAuth implements Filter {
 		
 		
 		String except = ((HttpServletRequest) request).getParameter("ApplicationController");
-		System.out.println(usuarioLogado + "tt");
+		
 		if (except.equals("Login") || except.equals("Auth")) {
 			chain.doFilter(request, response);
 		} else {

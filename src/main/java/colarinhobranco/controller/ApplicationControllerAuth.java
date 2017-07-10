@@ -2,14 +2,11 @@ package colarinhobranco.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.mapping.List;
-
-import colarinhobranco.daoimpl.UsuarioDao;
-import colarinhobranco.model.Usuario;
+import colarinhobranco.services.ApplicationServiceUsuario;
 
 public class ApplicationControllerAuth extends ApplicationController {
 		
-	private UsuarioDao usuarioDao = new UsuarioDao();
+	private ApplicationServiceUsuario service = new ApplicationServiceUsuario();
 	
 	@Override
 	public String execute() {
@@ -17,9 +14,7 @@ public class ApplicationControllerAuth extends ApplicationController {
 		String email = this.request.getParameter("email");
 		String senha = this.request.getParameter("senha");
 		
-		Boolean existe = this.usuarioDao.auth(email, senha);
-		
-		System.out.println("Existe: " + existe);
+		boolean existe = this.service.auth(email, senha);
 		
 		if (existe) {
 			HttpSession session = this.request.getSession();
